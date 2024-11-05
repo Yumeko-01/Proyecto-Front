@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/formProductos.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <title>Formulario Productos</title>
+</head>
+
+<body>
+    <header class="contenedor">
+        <div class="logo">
+            <h1>RutaBike</h1>
+        </div>
+        <nav class="Menu">
+            <a href="index.html">Inicio</a>
+            <a href="bicicletas.html">Productos</a>
+            <a href="">Componentes</a>
+            <a href="">Nosotros</a>
+            <a class="nav-link" aria-current="page" href="clientes.html">Clientes</a>
+        </nav>
+    </header>
+    <section class="contenedor">
+        <div class="row align-items-center mb-4">
+            <span class="fw-bold w-auto">Formulario Productos</span>
+        </div>
+        <div class="row">
+            <form class="mt-4" action="" onsubmit="" method="POST">
+                <div class="mb-3">
+                    <label for="marca" class="form-label">Marca</label>
+                    <input type="text" class="form-control" name="marca" id="marca">
+                </div>
+
+                <div class="mb-3">
+                    <label for="modelo" class="form-label">Modelo</label>
+                    <input type="text" class="form-control" name="modelo" id="modelo">
+                </div>
+
+                <div class="mb-3">
+                    <label for="precio" class="form-label">Precio</label>
+                    <input type="number" class="form-control" name="precio" id="precio">
+                </div>
+
+                <div class="mb-3">
+                    <label for="tipo" class="form-label">Tipo</label>
+                    <select class="form-select" name="tipo" id="tipo">
+                        <option value="Montaña">Montaña</option>
+                        <option value="Urbana">Urbana</option>
+                        <option value="Eléctrica">Eléctrica</option>
+                        <option value="Carretera">Carretera</option>
+                    </select>
+                </div>
+
+                <div class="mb-3">
+                    <label for="color" class="form-label">Color</label>
+                    <input type="text" class="form-control" name="color" id="color">
+                </div>
+
+                <div class="mb-3">
+                    <label for="año" class="form-label">Año</label>
+                    <input type="number" class="form-control" name="año" id="año">
+                </div>
+
+                <button type="button" class="btn btn-primary" onclick="guardarBicicletas()">Guardar</button>
+                <button type="button" class="btn btn-black" id="btn-editar">Editar</button>
+            </form>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2024 RutaBike. Todos los derechos reservados. | Diseñado para los amantes de las bicicletas.</p>
+    </footer>
+
+    <script src="js/request.js"></script>
+    <script src="js/bicicletas.js"></script>
+    <script>
+        window.onload = function () {
+            let boton = document.getElementById('btn-editar');
+            const url = new URLSearchParams(window.location.search);
+            cargarDatos(url.get('id')); // Cargar datos cuando la página se carga
+            boton.onclick = () => {
+                modificarBicicletas(url.get('id')); // Llamar a modificarBicicletas cuando se hace clic en "Editar"
+            }
+        }
+    </script>
+
+</body>
+
+</html>
