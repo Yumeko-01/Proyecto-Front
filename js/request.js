@@ -1,5 +1,5 @@
 //const url = "http://localhost:5000/api/";
-const url = "https://proyecto-back-r4kt.onrender.com";
+const url = "https://proyecto-back-r4kt.onrender.com/";
 
 function sendRequest(endPoint, method, data) {
     let request = new XMLHttpRequest();
